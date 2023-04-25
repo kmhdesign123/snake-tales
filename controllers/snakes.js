@@ -17,7 +17,7 @@ function create(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/snakes/new')
+    res.redirect('/')
   })
 }
 
@@ -28,7 +28,7 @@ function deleteSnake(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/snakes/new")
+    res.redirect("/")
   })
 }
 function edit(req, res) {
@@ -46,7 +46,14 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-  console.log('it works')
+  Snake.findByIdAndUpdate(req.params.snakeId, req.body, {new: true})
+  .then(snake => {
+    res.redirect('/snakes/new')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
 }
 
 export {
