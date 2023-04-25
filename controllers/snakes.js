@@ -32,8 +32,18 @@ function deleteSnake(req, res) {
   })
 }
 function edit(req, res) {
-  console.log("it works!")
-  }
+  Snake.findById(req.params.snakeId)
+  .then(snake => {
+    res.render("snakes/edit", {
+      snake: snake,
+      title: "Edit Snake"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
 
 export {
   newSnake as new,
