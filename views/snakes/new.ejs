@@ -35,6 +35,7 @@
           <th>Last Meal</th>
           <th>Weight</th>
           <th>Tank Number</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -47,6 +48,14 @@
           <td><%= snake.lastMeal %></td>
           <td><%= snake.weight %></td>
           <td><%= snake.tankNum %></td>
+          <td>
+            <form 
+              action="/snakes/<%= snake._id %>?_method=DELETE" 
+              method="POST"
+            >
+              <button type="submit">X</button>
+            </form>
+          </td>
         </tr>
         <% }) %>
       </tbody>

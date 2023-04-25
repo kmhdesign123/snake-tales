@@ -8,7 +8,8 @@ router.get('/new', snakesCtrl.new)
 
 // POST /snakes/
 router.post('/', snakesCtrl.create)
-// SHOW /snakes/new
-router.get('/snakeId', snakesCtrl.show)
+
+// DELETE ROUTERS
+router.delete('/:snakeId', snakesCtrl.delete)
 
 export { router }
