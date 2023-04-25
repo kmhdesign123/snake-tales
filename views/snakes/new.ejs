@@ -49,6 +49,10 @@
           <td><%= snake.weight %></td>
           <td><%= snake.tankNum %></td>
           <td>
+            <a href="/snakes/<%= snake._id %>/edit">
+              <button>✏️</button>
+          </td>
+          <td>
             <form 
               action="/snakes/<%= snake._id %>?_method=DELETE" 
               method="POST"

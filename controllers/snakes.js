@@ -31,9 +31,13 @@ function deleteSnake(req, res) {
     res.redirect("/snakes/new")
   })
 }
+function edit(req, res) {
+  console.log("it works!")
+  }
 
 export {
   newSnake as new,
   create,
   deleteSnake as delete,
+  edit,
 }
