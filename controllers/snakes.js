@@ -45,9 +45,14 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  console.log('it works')
+}
+
 export {
   newSnake as new,
   create,
   deleteSnake as delete,
   edit,
+  update,
 }
