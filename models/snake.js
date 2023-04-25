@@ -8,7 +8,7 @@ const snakeSchema = new Schema({
   dateOfBirth: Date,
   morph: String,
   lastMeal: Date,
-  weight: Number,
+  weight: String,
   tankNum: Number,
 }, {
   timestamps: true

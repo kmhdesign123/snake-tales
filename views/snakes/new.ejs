@@ -18,11 +18,42 @@
     <input type="datetime-local" id="lastMeal-input"
     name="lastMeal-input" value="">
     <label for="weight-input">Weight:</label>
-    <input type="number" name="weight" id="weight-input">
+    <input type="text" name="weight" id="weight-input">
     <label for="tank-input">Tank Number:</label>
     <input type="number" name="tank" id="tank-input">
     <button type="submit">Add Snake</button>
   </form>
+  <% if (snakes.length) { %>
+    <h1>My Snakes</h1>
+    <table id="list">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Species</th>
+          <th>DOB</th>
+          <th>Morph</th>
+          <th>Last Meal</th>
+          <th>Weight</th>
+          <th>Tank Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% snakes.forEach((snake) => { %>
+        <tr>
+          <td><%= snake.name %></td>
+          <td><%= snake.species %></td>
+          <td><%= snake.dateOfBirth %></td>
+          <td><%= snake.morph %></td>
+          <td><%= snake.lastMeal %></td>
+          <td><%= snake.weight %></td>
+          <td><%= snake.tankNum %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } else { %>
+      <h3>You havent added any snakes yet</h3>
+    <% } %>
 </main>
 
 <%- include("../partials/footer") %>
