@@ -10,7 +10,7 @@ router.get('/:snakeId/edit', snakesCtrl.edit)
 
 // POST ROUTERS
 router.post('/', snakesCtrl.create)
-router.post('/:snakeId/meals', snakesCtrl.createMeal)
+router.post('/:snakeId/edit', snakesCtrl.createMeal)
 
 //PUT ROUTERS
 router.put('/:snakeId', snakesCtrl.update)

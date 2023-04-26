@@ -64,7 +64,7 @@ function createMeal(req, res) {
     snake.meals.push(req.body)
     snake.save()
     .then(() => {
-      res.redirect('/snakes/${snake._id}')
+      res.redirect('/snakes/${snake._id}/edit')
     })
     .catch(err => {
       console.log(err)

@@ -5,7 +5,6 @@ const Schema = mongoose.Schema
 const mealSchema = new Schema({
   food: String,
   dateOfMeal: Date,
-  didEat: Boolean
 }, {
   timestamps: true
 })
