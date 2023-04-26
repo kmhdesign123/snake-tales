@@ -1,21 +1,22 @@
 import { Router } from 'express'
+import { isLoggedIn } from '../middleware/middleware.js'
 import * as snakesCtrl from '../controllers/snakes.js'
 
 const router = Router()
 
 // GET ROUTERS
-router.get('/new', snakesCtrl.new)
+router.get('/new', isLoggedIn, snakesCtrl.new)
 
-router.get('/:snakeId/edit', snakesCtrl.edit)
+router.get('/:snakeId/edit', isLoggedIn, snakesCtrl.edit)
 
 // POST ROUTERS
-router.post('/', snakesCtrl.create)
-router.post('/:snakeId/edit', snakesCtrl.createMeal)
+router.post('/', isLoggedIn, snakesCtrl.create)
+router.post('/:snakeId/edit', isLoggedIn, snakesCtrl.createMeal)
 
 //PUT ROUTERS
-router.put('/:snakeId', snakesCtrl.update)
+router.put('/:snakeId', isLoggedIn, snakesCtrl.update)
 
 // DELETE ROUTERS
-router.delete('/:snakeId', snakesCtrl.delete)
+router.delete('/:snakeId', isLoggedIn, snakesCtrl.delete)
 
 export { router }
