@@ -2,10 +2,12 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const mealsSchema = new Schema({
+const mealSchema = new Schema({
   food: String,
   dateOfMeal: Date,
   didEat: Boolean
+}, {
+  timestamps: true
 })
 
 const snakeSchema = new Schema({
@@ -13,9 +15,9 @@ const snakeSchema = new Schema({
   species: String,
   dateOfBirth: Date,
   morph: String,
-  lastMeal: Date,
   weight: String,
-  tankNum: Number
+  tankNum: Number,
+  meal: [mealSchema]
 }, {
   timestamps: true
 })

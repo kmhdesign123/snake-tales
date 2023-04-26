@@ -57,10 +57,15 @@ function update(req, res) {
   })
 }
 
+function createMeal(req, res) {
+
+}
+
 export {
   newSnake as new,
   create,
   deleteSnake as delete,
   edit,
   update,
+  createMeal,
 }
