@@ -31,12 +31,13 @@ function deleteSnake(req, res) {
     res.redirect("/")
   })
 }
+
 function edit(req, res) {
   Snake.findById(req.params.snakeId)
   .then(snake => {
     res.render("snakes/edit", {
       snake: snake,
-      title: "Edit Snake"
+      title: "Edit Snake",
     })
   })
   .catch(err => {

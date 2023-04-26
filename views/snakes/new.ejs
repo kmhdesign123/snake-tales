@@ -8,19 +8,19 @@
     <label for="name-input">Name:</label>
     <input type="text" name="name" id="name-input">
     <label for="species-input">Species:</label>
-    <input type="text" name="species" id="species-input">
+    <input type="text" name="species" id="species">
     <label for="morph-input">Morph:</label>
     <input type="text" name="morph" id="morph-input">
     <label for="dateOfBirth-input">DOB:</label>
     <input type="datetime-local" id="dateOfBirth-input"
-    name="dateOfBirth-input" value="">
+    name="dateOfBirth">
     <label for="lastMeal-input">Last Meal:</label>
     <input type="datetime-local" id="lastMeal-input"
-    name="lastMeal-input" value="">
+    name="lastMeal">
     <label for="weight-input">Weight:</label>
     <input type="text" name="weight" id="weight-input">
     <label for="tank-input">Tank Number:</label>
-    <input type="number" name="tank" id="tank-input">
+    <input type="number" name="tankNum" id="tank-input">
     <button type="submit">Add Snake</button>
   </form>
   <% if (snakes.length) { %>
@@ -43,7 +43,7 @@
         <tr>
           <td><%= snake.name %></td>
           <td><%= snake.species %></td>
-          <td><%= snake.dateOfBirth %></td>
+          <td><%= snake.dateOfBirth.toISOString().slice(0,10) %></td>
           <td><%= snake.morph %></td>
           <td><%= snake.lastMeal %></td>
           <td><%= snake.weight %></td>

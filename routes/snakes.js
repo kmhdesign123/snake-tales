@@ -3,15 +3,15 @@ import * as snakesCtrl from '../controllers/snakes.js'
 
 const router = Router()
 
-// GET
+// GET ROUTERS
 router.get('/new', snakesCtrl.new)
 
 router.get('/:snakeId/edit', snakesCtrl.edit)
 
-// POST
+// POST ROUTERS
 router.post('/', snakesCtrl.create)
 
-//PUT 
+//PUT ROUTERS
 router.put('/:snakeId', snakesCtrl.update)
 
 // DELETE ROUTERS

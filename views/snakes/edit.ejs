@@ -12,13 +12,13 @@
     <label for="morph-input">Morph:</label>
     <input type="text" name="morph" value="<%= snake.morph %>" id="morph-input">
     <label for="dateOfBirth-input">DOB:</label>
-    <input type="datetime-local" name="dateOfBirth-input" value="<%= snake.dateOfBirth %>" id="dateOfBirth-input">
+    <input type="datetime-local" name="dateOfBirth" value="<%= snake.dateOfBirth.toISOString().slice(0,16) %>" id="dateOfBirth-input">
     <label for="lastMeal-input">Last Meal:</label>
-    <input type="datetime-local" name="lastMeal-input"  value="<%= snake.lastMeal %>"id="lastMeal-input">
+    <input type="datetime-local" name="lastMeal"  value="<%= snake.lastMeal %>"id="lastMeal-input">
     <label for="weight-input">Weight:</label>
     <input type="text" name="weight" value="<%= snake.weight %>" id="weight-input">
     <label for="tank-input">Tank Number:</label>
-    <input type="number" name="tank" value="<%= snake.tankNum %>" id="tank-input">
+    <input type="number" name="tankNum" value="<%= snake.tankNum %>" id="tank-input">
     <button type="submit">Update Snake</button>
   </form>
 </main>
