@@ -17,7 +17,7 @@ const snakeSchema = new Schema({
   morph: String,
   weight: String,
   tankNum: Number,
-  meal: [mealSchema]
+  meals: [mealSchema]
 }, {
   timestamps: true
 })

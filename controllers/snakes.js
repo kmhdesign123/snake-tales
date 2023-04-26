@@ -58,7 +58,23 @@ function update(req, res) {
 }
 
 function createMeal(req, res) {
-
+  console.log('this works!')
+  Snake.findById(req.params.snakeId)
+  .then(snake => {
+    snake.meals.push(req.body)
+    snake.save()
+    .then(() => {
+      res.redirect('/snakes/${snake._id}')
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
 
 export {
