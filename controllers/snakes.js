@@ -41,8 +41,9 @@ function show(req, res) {
   Snake.findById(req.params.snakeId)
   .then(snake => {
     res.render('snakes/show', { 
-      title: 'snake Detail', 
+      title: 'Snake Details', 
       snake: snake,
+      snakes: snakes,
     })    
   })
 })

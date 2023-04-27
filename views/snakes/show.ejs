@@ -3,7 +3,28 @@
 <%- include('../partials/nav') %>
 
 <main>
-
+  <h1><%= title %></h1>
+  <% if (snake.meals.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% snake.meals.forEach(function(meal) { %>
+          <tr>
+            <td><%= meal.food %></td>
+            <td><%= meal.dateOfMeal.toLocaleDateString() %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h3>No meals Yet</h3>
+  <% } %>
+</main>
 </main>
 
 <%- include("../partials/footer") %>
