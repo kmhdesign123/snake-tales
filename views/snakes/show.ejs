@@ -4,7 +4,6 @@
 
 <main>
   <h1><%= title %></h1>
-
   <table id="list">
     <thead>
       <tr>
@@ -38,12 +37,17 @@
     </tbody>
   </table>
   
-  <h1>Meals</h1>
-  <a 
-      href="/snakes/meals" class=<%= title === 'Add A Meal' ? 'active' : '' %>
-    >
-    <i class="fas fa-plus" style="color: #424242;"></i>
-    </a>
+  <h1>Add A Meal</h1>
+  <form id="add-meal-form" action="/snakes/<%= snake._id %>/meals" method="POST">
+    <label for="food-input">Food:</label>
+    <input type="text" id="food-input"
+    name="food">
+    <label for="dateOfMeal-input">Date:</label>
+    <input type="datetime-local" id="dateOfMeal-input"
+    name="dateOfMeal">
+    <button type="submit"><i class="fas fa-plus" style="color: #424242;"></i></button>
+  </form>
+
   <% if (snake.meals.length) { %>
     <table>
       <thead>

@@ -12,7 +12,7 @@ router.get('/:snakeId/edit', isLoggedIn, snakesCtrl.edit)
 
 // POST ROUTERS
 router.post('/', isLoggedIn, snakesCtrl.create)
-router.post('/:snakeId/edit', isLoggedIn, snakesCtrl.createMeal)
+router.post('/:snakeId/meals', isLoggedIn, snakesCtrl.createMeal)
 
 //PUT ROUTERS
 router.put('/:snakeId', isLoggedIn, snakesCtrl.update)

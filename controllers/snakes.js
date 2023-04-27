@@ -105,10 +105,11 @@ function update(req, res) {
 function createMeal(req, res) {
   Snake.findById(req.params.snakeId)
   .then(snake => {
+    console.log(snake)
     snake.meals.push(req.body)
     snake.save()
     .then(() => {
-      res.redirect('/snakes/${snake._id}/edit')
+      res.redirect(`/snakes/${snake._id}`)
     })
     .catch(err => {
       console.log(err)
