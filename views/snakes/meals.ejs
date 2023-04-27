@@ -27,6 +27,14 @@
           <tr>
             <td><%= meal.food %></td>
             <td><%= meal.dateOfMeal.toLocaleDateString() %></td>
+          <td>
+            <form 
+              action="/snakes/<%= snake._id %>/meals/<%= meal._id %>?_method=DELETE" 
+              method="POST"
+            >
+              <button type="submit"><i class="fas fa-trash-alt" style="color: #424242;"></i></button>
+            </form>
+          </td>
           </tr>
         <% }) %>
       </tbody>
