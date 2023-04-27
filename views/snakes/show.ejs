@@ -10,7 +10,7 @@
         <th>Name</th>
         <th>Species</th>
         <th>DOB</th>
-        <th>Edit/View Meals</th>
+        <th>Edit</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -21,8 +21,8 @@
         <td><%= snake.species %></td>
         <td><%= snake.dateOfBirth.toISOString().slice(0,10) %></td>
         <td>
-          <a href="/snakes/<%= snake._id %>">
-            <button><i class="far fa-file-alt fa=lg" style="color: #424242;"></i></button>
+          <a href="/snakes/<%= snake._id %>/edit">
+            <button><i class="fas fa-pencil-alt" style="color: #424242;"></i></button>
         </td>
         <td>
           <form 
