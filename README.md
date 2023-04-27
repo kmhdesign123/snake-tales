@@ -29,3 +29,5 @@ I came up with the idea for this app back in college & decided to re-structure i
 - AAU I would like to be able to log vet appointments per pet
 - AAU I would like to export the feeding history of a pet to a PDF so I can share it with a vet or print out
 ## Attributions:
+
+For help with [CSS](https://www.w3schools.com/css)
