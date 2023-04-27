@@ -4,6 +4,40 @@
 
 <main>
   <h1><%= title %></h1>
+
+  <table id="list">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Species</th>
+        <th>DOB</th>
+        <th>Edit/View Meals</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% snakes.forEach((snake) => { %>
+      <tr>
+        <td><%= snake.name %></td>
+        <td><%= snake.species %></td>
+        <td><%= snake.dateOfBirth.toISOString().slice(0,10) %></td>
+        <td>
+          <a href="/snakes/<%= snake._id %>">
+            <button><i class="far fa-file-alt fa=lg" style="color: #424242;"></i></button>
+        </td>
+        <td>
+          <form 
+            action="/snakes/<%= snake._id %>?_method=DELETE" 
+            method="POST"
+          >
+            <button type="submit"><i class="fas fa-trash-alt" style="color: #424242;"></i></button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
   <% if (snake.meals.length) { %>
     <table>
       <thead>
