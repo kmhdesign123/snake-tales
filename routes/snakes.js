@@ -19,5 +19,6 @@ router.put('/:snakeId', isLoggedIn, snakesCtrl.update)
 
 // DELETE ROUTERS
 router.delete('/:snakeId', isLoggedIn, snakesCtrl.delete)
+router.delete('/:snakeId/meals/:mealId', snakesCtrl.deleteMeal)
 
 export { router }
