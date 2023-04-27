@@ -18,20 +18,16 @@
     <input type="text" name="weight" id="weight-input">
     <label for="tank-input">Tank Number:</label>
     <input type="number" name="tankNum" id="tank-input">
-    <button type="submit">Add Snake</button>
+    <button type="submit"><i class="fas fa-plus" style="color: #424242;"> Snake</i></button>
   </form>
 
   <% if (snakes.length) { %>
-    <h1>My Snakes</h1>
     <table id="list">
       <thead>
         <tr>
           <th>Name</th>
           <th>Species</th>
           <th>DOB</th>
-          <th>Morph</th>
-          <th>Weight</th>
-          <th>Tank #</th>
           <th>Edit/View Meals</th>
           <th>Delete</th>
         </tr>
@@ -42,19 +38,16 @@
           <td><%= snake.name %></td>
           <td><%= snake.species %></td>
           <td><%= snake.dateOfBirth.toISOString().slice(0,10) %></td>
-          <td><%= snake.morph %></td>
-          <td><%= snake.weight %></td>
-          <td><%= snake.tankNum %></td>
           <td>
             <a href="/snakes/<%= snake._id %>/edit">
-              <button>✏️</button>
+              <button><i class="far fa-file-alt fa=lg" style="color: #424242;"></i></button>
           </td>
           <td>
             <form 
               action="/snakes/<%= snake._id %>?_method=DELETE" 
               method="POST"
             >
-              <button type="submit">X</button>
+              <button type="submit"><i class="fas fa-trash-alt" style="color: #424242;"></i></button>
             </form>
           </td>
         </tr>

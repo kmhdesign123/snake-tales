@@ -17,7 +17,7 @@
     <input type="text" name="weight" value="<%= snake.weight %>" id="weight-input">
     <label for="tank-input">Tank Number:</label>
     <input type="number" name="tankNum" value="<%= snake.tankNum %>" id="tank-input">
-    <button type="submit">Update Snake</button>
+    <button type="submit"><i class="fas fa-save" style="color: #424242;"></i></button>
   </form>
   <% if (snakes.length) { %>
     <h1>My Snakes</h1>
@@ -39,14 +39,14 @@
           <td><%= snake.dateOfBirth.toISOString().slice(0,10) %></td>
           <td>
             <a href="/snakes/<%= snake._id %>/edit">
-              <button>✏️</button>
+              <button><i class="far fa-file-alt fa=lg" style="color: #424242;"></i></button>
           </td>
           <td>
             <form 
               action="/snakes/<%= snake._id %>?_method=DELETE" 
               method="POST"
             >
-              <button type="submit">X</button>
+              <button type="submit"><i class="fas fa-trash-alt" style="color: #424242;"></i></button>
             </form>
           </td>
         </tr>

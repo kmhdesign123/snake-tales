@@ -12,8 +12,8 @@ html {
 }
 
 body {
-  background-color: #1a1a1a;
-  color: #f6f6f6;
+  background-color: #ffffff;
+  color: #424242;
   /* Use a system font, if none are available use any found sans-sarif font */
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
@@ -38,4 +38,36 @@ main {
 
 .right {
   margin-left: auto;
+}
+
+button {
+  min-height: 30px;
+  min-width: 30px;
+}
+
+table {
+  border: none;
+  border-collapse:collapse;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+td {
+  height: 50px;
+  vertical-align: bottom;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: rgb(168, 241, 123) ;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }

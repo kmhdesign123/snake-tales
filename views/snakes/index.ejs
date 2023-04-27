@@ -4,6 +4,11 @@
 
 <main>
   <h1><%= title %></h1>
+  <a 
+      href="/snakes/new" class=<%= title === 'Add Snake' ? 'active' : '' %>
+    >
+    <i class="fas fa-plus" style="color: #424242;"></i>
+    </a>
   <% if (snakes.length) { %>
     <table id="list">
       <thead>
@@ -23,14 +28,14 @@
           <td><%= snake.dateOfBirth.toISOString().slice(0,10) %></td>
           <td>
             <a href="/snakes/<%= snake._id %>/edit">
-              <button>✏️</button>
+              <button><i class="far fa-file-alt fa=lg" style="color: #424242;"></i></button>
           </td>
           <td>
             <form 
               action="/snakes/<%= snake._id %>?_method=DELETE" 
               method="POST"
             >
-              <button type="submit">X</button>
+              <button type="submit"><i class="fas fa-trash-alt" style="color: #424242;"></i></button>
             </form>
           </td>
         </tr>
