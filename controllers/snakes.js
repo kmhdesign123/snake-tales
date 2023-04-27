@@ -103,7 +103,6 @@ function update(req, res) {
 }
 
 function createMeal(req, res) {
-  console.log('this works!')
   Snake.findById(req.params.snakeId)
   .then(snake => {
     snake.meals.push(req.body)
@@ -122,8 +121,24 @@ function createMeal(req, res) {
   })
 }
 
-
-
+function deleteMeal(req,res) {
+  Snake.findById(req.params.snakeId)
+    .then(snake => {
+      snake.meals.remove(req.params.mealId)
+      snake.save()
+      .then(() => {
+        res.redirect('/snakes/${snake._id')
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/snakes')
+      })
+    })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/snakes')
+  })
+}
 export {
   newSnake as new,
   create,
@@ -133,4 +148,5 @@ export {
   edit,
   update,
   createMeal,
+  deleteMeal,
 }
