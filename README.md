@@ -1,6 +1,7 @@
 # Snake Tales
-An app to track your snakes and info about them, like when they last ate & see a log of all of thier meals.
-I came up with the idea for this app back in college & decided to re structure it for this project! 
+An app to track your snakes and info about them, like when they last ate & see a log of all of their meals. 
+
+I came up with the idea for this app back in college & decided to re-structure it for this project!
 ## Check out the [planning materials](https://trello.com/b/L7fk4Jj5/project-planning)
 
 ## Check out the [app](https://snake-tales.fly.dev)
