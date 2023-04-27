@@ -35,6 +35,27 @@ function index(req, res) {
   })
 }
 
+function show(req, res) {
+  Snake.find({})
+  .then(snakes => {
+  Snake.findById(req.params.snakeId)
+  .then(snake => {
+    res.render('snakes/show', { 
+      title: 'snake Detail', 
+      snake: snake,
+    })    
+  })
+})
+    .catch(err => {
+    console.log(err)
+    res.redirect("/")
+    })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
 function deleteSnake(req, res) {
   Snake.findByIdAndDelete(req.params.snakeId)
   .then(snake => {
@@ -45,6 +66,7 @@ function deleteSnake(req, res) {
     res.redirect("/")
   })
 }
+
 
 function edit(req, res) {
   Snake.find({})
@@ -58,6 +80,10 @@ function edit(req, res) {
       })
     })
   })
+    .catch(err => {
+    console.log(err)
+    res.redirect("/")
+    })
   .catch(err => {
     console.log(err)
     res.redirect("/")
@@ -99,6 +125,7 @@ export {
   newSnake as new,
   create,
   index,
+  show,
   deleteSnake as delete,
   edit,
   update,
