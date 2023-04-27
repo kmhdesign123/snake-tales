@@ -39,6 +39,11 @@
   </table>
   
   <h1>Meals</h1>
+  <a 
+      href="/snakes/meals" class=<%= title === 'Add A Meal' ? 'active' : '' %>
+    >
+    <i class="fas fa-plus" style="color: #424242;"></i>
+    </a>
   <% if (snake.meals.length) { %>
     <table>
       <thead>
