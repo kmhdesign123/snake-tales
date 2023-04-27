@@ -1,0 +1,45 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/public/stylesheets/style.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <% if (snakes.length) { %>
+    <table id="list">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Species</th>
+          <th>DOB</th>
+          <th>Edit/View Meals</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% snakes.forEach((snake) => { %>
+        <tr>
+          <td><%= snake.name %></td>
+          <td><%= snake.species %></td>
+          <td><%= snake.dateOfBirth.toISOString().slice(0,10) %></td>
+          <td>
+            <a href="/snakes/<%= snake._id %>/edit">
+              <button>✏️</button>
+          </td>
+          <td>
+            <form 
+              action="/snakes/<%= snake._id %>?_method=DELETE" 
+              method="POST"
+            >
+              <button type="submit">X</button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } else { %>
+      <h3>You havent added any snakes yet</h3>
+    <% } %>
+</main>
+
+<%- include("../partials/footer") %>

@@ -5,8 +5,8 @@ import * as snakesCtrl from '../controllers/snakes.js'
 const router = Router()
 
 // GET ROUTERS
+router.get('/', isLoggedIn, snakesCtrl.index)
 router.get('/new', isLoggedIn, snakesCtrl.new)
-
 router.get('/:snakeId/edit', isLoggedIn, snakesCtrl.edit)
 
 // POST ROUTERS

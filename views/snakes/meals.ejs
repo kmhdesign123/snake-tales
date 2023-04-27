@@ -1,0 +1,39 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/public/stylesheets/style.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <h2>Add Meal</h2>
+  <form id="add-meal-form" action="/snakes/<%= snake._id %>/edit" method="POST">
+    <label for="food-input">Food:</label>
+    <input type="text" id="food-input"
+    name="food">
+    <label for="dateOfMeal-input">Date:</label>
+    <input type="datetime-local" id="dateOfMeal-input"
+    name="dateOfMeal">
+    <button type="submit">Add Meal</button>
+  </form>
+  
+  <% if (snake.meals.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% snake.meals.forEach(function(meal) { %>
+          <tr>
+            <td><%= meal.food %></td>
+            <td><%= meal.dateOfMeal.toLocaleDateString() %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h3>No meals Yet</h3>
+  <% } %>
+</main>
+
+<%- include("../partials/footer") %>

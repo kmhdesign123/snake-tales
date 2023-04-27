@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/movies/forms.css" />
+<link rel="stylesheet" href="/public/stylesheets/style.css" />
 <%- include('../partials/nav') %>
 
 <main>
@@ -19,37 +19,44 @@
     <input type="number" name="tankNum" value="<%= snake.tankNum %>" id="tank-input">
     <button type="submit">Update Snake</button>
   </form>
-  <h2>Add Meal</h2>
-  <form id="add-meal-form" action="/snakes/<%= snake._id %>/edit" method="POST">
-    <label for="food-input">Food:</label>
-    <input type="text" id="food-input"
-    name="food">
-    <label for="dateOfMeal-input">Date:</label>
-    <input type="datetime-local" id="dateOfMeal-input"
-    name="dateOfMeal">
-    <button type="submit">Add Meal</button>
-  </form>
-  
-  <% if (snake.meals.length) { %>
-    <table>
+  <% if (snakes.length) { %>
+    <h1>My Snakes</h1>
+    <table id="list">
       <thead>
         <tr>
-          <th>Food</th>
-          <th>Date</th>
+          <th>Name</th>
+          <th>Species</th>
+          <th>DOB</th>
+          <th>Details</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
-        <% snake.meals.forEach(function(meal) { %>
-          <tr>
-            <td><%= meal.food %></td>
-            <td><%= meal.dateOfMeal.toLocaleDateString() %></td>
-          </tr>
+        <% snakes.forEach((snake) => { %>
+        <tr>
+          <td><%= snake.name %></td>
+          <td><%= snake.species %></td>
+          <td><%= snake.dateOfBirth.toISOString().slice(0,10) %></td>
+          <td>
+            <a href="/snakes/<%= snake._id %>/edit">
+              <button>✏️</button>
+          </td>
+          <td>
+            <form 
+              action="/snakes/<%= snake._id %>?_method=DELETE" 
+              method="POST"
+            >
+              <button type="submit">X</button>
+            </form>
+          </td>
+        </tr>
         <% }) %>
       </tbody>
     </table>
-  <% } else { %>
-    <h3>No meals Yet</h3>
-  <% } %>
+    <% } else { %>
+      <h3>You havent added any snakes yet</h3>
+    <% } %>
+</main>
 </main>
 
 <%- include("../partials/footer") %>

@@ -13,11 +13,25 @@ function newSnake(req, res) {
 function create(req, res) {
   Snake.create(req.body)
   .then(snake => {
-    res.redirect('/snakes/new')
+    res.redirect('/snakes/${snake._id}')
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/')
+    res.redirect('/snakes/new')
+  })
+}
+
+function index(req, res) {
+  Snake.find({})
+  .then(snakes => {
+    res.render('snakes/index', {
+      snakes: snakes,
+      title: 'My Snakes'
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/snakes/new')
   })
 }
 
@@ -33,11 +47,15 @@ function deleteSnake(req, res) {
 }
 
 function edit(req, res) {
-  Snake.findById(req.params.snakeId)
-  .then(snake => {
-    res.render("snakes/edit", {
-      snake: snake,
-      title: "Edit Snake",
+  Snake.find({})
+  .then(snakes => {
+    Snake.findById(req.params.snakeId)
+    .then(snake => {
+      res.render("snakes/edit", {
+        snake: snake,
+        title: "Edit Snake",
+        snakes: snakes,
+      })
     })
   })
   .catch(err => {
@@ -80,6 +98,7 @@ function createMeal(req, res) {
 export {
   newSnake as new,
   create,
+  index,
   deleteSnake as delete,
   edit,
   update,
