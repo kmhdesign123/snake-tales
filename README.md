@@ -6,6 +6,7 @@ I came up with the idea for this app back in college & decided to re-structure i
 
 ## Check out the [app](https://snake-tales.fly.dev)
 
+![Logo](https://user-images.githubusercontent.com/127788664/235142567-3ffda579-536a-40fc-8bf2-8045bfec17cf.svg)
 
 ## Technology Used:
 - JavaScript
