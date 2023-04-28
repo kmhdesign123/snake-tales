@@ -18,6 +18,9 @@ I came up with the idea for this app back in college & decided to re-structure i
 - Node.js
 - Fly.io
 - Docker
+### Design/Planning
+- Adobe Illustrator
+- Adobe Xd
 
 ## IceBox:
 - AAU I want to only be able to see my snakes & their meals if I am logged in
@@ -29,5 +32,6 @@ I came up with the idea for this app back in college & decided to re-structure i
 - AAU I would like to be able to log vet appointments per pet
 - AAU I would like to export the feeding history of a pet to a PDF so I can share it with a vet or print out
 ## Attributions:
-
-For help with [CSS](https://www.w3schools.com/css)
+- Google [Fonts](https://fonts.google.com/specimen/Open+Sans?query=open+sans)
+- CSS Reset by [Josh](https://www.joshwcomeau.com/css/custom-css-reset/)
+- Icons from [Font Awesome](https://fontawesome.com/)
