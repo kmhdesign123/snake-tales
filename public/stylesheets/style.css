@@ -38,8 +38,11 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+a#nav:hover {
   background-color: #2a670f;
+}
+button#nav {
+  color: #ffffff;
 }
 
 main {
@@ -87,7 +90,6 @@ table.form {
   box-shadow: none;
 }
 
-
 th {
   background-color:#63B62A;
   color: white;
@@ -131,8 +133,6 @@ tr.form:nth-child(even) {
   flex-wrap: wrap;
   width: 100%;
 }
-
-
 
 .snakelist {
   display: flex;

@@ -5,18 +5,18 @@
 <body>
   <nav>
     <a 
-      href="/snakes/new" class=<%= title === 'Add Snake' ? 'active' : '' %>
+      href="/snakes/new" id="nav" class=<%= title === 'Add Snake' ? 'active' : '' %>
     >
       Add Snakes
     </a>
     <a 
-      href="/snakes" class=<%= title === 'My Snakes' ? 'active' : '' %>
+      href="/snakes" id="nav" class=<%= title === 'My Snakes' ? 'active' : '' %>
     >
       My Snakes
     </a>
     <% if (user) { %>
       <a href="/auth/logout" class="right">
-        <button type="submit">Logout</button>
+        <button id="nav" type="submit">Logout</button>
       </a>
     <% } else { %>
       <div 
