@@ -3,24 +3,29 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
-  <a 
-      href="/snakes/new" class=<%= title === 'Add Snake' ? 'active' : '' %>
-    >
-    <i class="fas fa-plus" style="color: #424242;"></i>
-    </a>
   <% if (snakes.length) { %>
     <table id="list">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Species</th>
-          <th>DOB</th>
-          <th>Edit/View Meals</th>
-          <th>Delete</th>
+        <th><h1><%= title %></h1></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th><a 
+            href="/snakes/new" class=<%= title === 'Add Snake' ? 'active' : '' %>
+          >
+          <i class="fas fa-plus" style="color: #ffffff;"></i>
+          </a></th>
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>Name</td>
+          <td>Species</td>
+          <td>DOB</td>
+          <td>Edit/View Meals</td>
+          <td>Delete</td>
+        </tr>
         <% snakes.forEach((snake) => { %>
         <tr>
           <td><%= snake.name %></td>

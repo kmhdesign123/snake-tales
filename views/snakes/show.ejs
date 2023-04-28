@@ -3,23 +3,67 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
-  <table id="list">
+  <div class="addmeal">
+    <table class="form">
+      <thead>
+        <tr class="form">
+          <th class="nocolor"><h1>Add A Meal</h1></th>
+          <th class="nocolor"></th>
+          <th class="nocolor"></th>
+          <th class="nocolor"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <form id="add-meal-form" action="/snakes/<%= snake._id %>/meals" method="POST">
+        <tr class="form">
+            <td>
+            <div>
+            <label for="food-input">Food:</label>
+            <input type="text" id="food-input"
+            name="food">
+            <label for="dateOfMeal-input">Date:</label>
+            <input type="datetime-local" id="dateOfMeal-input"
+            name="dateOfMeal">
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="addmeal" type="submit">Add Meal</button>
+    </form>
+</div>
+
+  <table class="snakedetails">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Species</th>
-        <th>DOB</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th><h1><%= title %></h1></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <% snakes.forEach((snake) => { %>
+      <tr>
+        <td>Name</td>
+        <td>Species</td>
+        <td>DOB</td>
+        <td>Morph</td>
+        <td>Weight</td>
+        <td>Tank #</td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
       <tr>
         <td><%= snake.name %></td>
         <td><%= snake.species %></td>
         <td><%= snake.dateOfBirth.toISOString().slice(0,10) %></td>
+        <td><%= snake.morph %></td>
+        <td><%= snake.weight %></td>
+        <td><%= snake.tankNum %></td>
         <td>
           <a href="/snakes/<%= snake._id %>/edit">
             <button><i class="fas fa-pencil-alt" style="color: #424242;"></i></button>
@@ -33,31 +77,25 @@
           </form>
         </td>
       </tr>
-      <% }) %>
     </tbody>
   </table>
-  
-  <h1>Add A Meal</h1>
-  <form id="add-meal-form" action="/snakes/<%= snake._id %>/meals" method="POST">
-    <label for="food-input">Food:</label>
-    <input type="text" id="food-input"
-    name="food">
-    <label for="dateOfMeal-input">Date:</label>
-    <input type="datetime-local" id="dateOfMeal-input"
-    name="dateOfMeal">
-    <button type="submit"><i class="fas fa-plus" style="color: #424242;"></i></button>
-  </form>
 
   <% if (snake.meals.length) { %>
     <table>
       <thead>
         <tr>
-          <th>Food</th>
-          <th>Date</th>
-          <th>Delete</th>
+          <th><h1>Meals</h1></th>
+          <th></th>
+          <th></th>
         </tr>
+        
       </thead>
       <tbody>
+        <tr>
+          <td>Food</td>
+          <td>Date</td>
+          <td>Delete</td>
+        </tr>
         <% snake.meals.forEach(function(meal) { %>
           <tr>
             <td><%= meal.food %></td>

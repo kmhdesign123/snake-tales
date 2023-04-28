@@ -3,8 +3,8 @@ import { Snake } from '../models/snake.js'
 function newSnake(req, res) {
   Snake.find({})
   .then(snakes => {
-    res.render('snakes/new', {
-      title: 'Add Snake',
+    res.render("snakes/new", {
+      title: "Add Snake",
       snakes: snakes
     })
   })
@@ -13,44 +13,37 @@ function newSnake(req, res) {
 function create(req, res) {
   Snake.create(req.body)
   .then(snake => {
-    res.redirect('/snakes/${snake._id}')
+    res.redirect(`/snakes/${snake._id}`)
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/snakes/new')
+    res.redirect("/snakes/new")
   })
 }
 
 function index(req, res) {
   Snake.find({})
   .then(snakes => {
-    res.render('snakes/index', {
+    res.render("snakes/index", {
       snakes: snakes,
       title: 'My Snakes'
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/snakes/new')
+    res.redirect("/snakes/new")
   })
 }
 
 function show(req, res) {
-  Snake.find({})
-  .then(snakes => {
+  
   Snake.findById(req.params.snakeId)
   .then(snake => {
-    res.render('snakes/show', { 
-      title: 'Snake Details', 
+    res.render("snakes/show", { 
+      title: "Snake Details", 
       snake: snake,
-      snakes: snakes,
     })    
   })
-})
-    .catch(err => {
-    console.log(err)
-    res.redirect("/")
-    })
   .catch(err => {
     console.log(err)
     res.redirect("/")
@@ -94,7 +87,7 @@ function edit(req, res) {
 function update(req, res) {
   Snake.findByIdAndUpdate(req.params.snakeId, req.body, {new: true})
   .then(snake => {
-    res.redirect('/snakes/new')
+    res.redirect("/snakes/new")
   })
   .catch(err => {
     console.log(err)
@@ -113,12 +106,12 @@ function createMeal(req, res) {
     })
     .catch(err => {
       console.log(err)
-      res.redirect('/')
+      res.redirect("/")
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/')
+    res.redirect("/")
   })
 }
 
@@ -128,16 +121,16 @@ function deleteMeal(req,res) {
       snake.meals.remove(req.params.mealId)
       snake.save()
       .then(() => {
-        res.redirect('/snakes/${snake._id')
+        res.redirect(`/snakes/${snake._id}`)
       })
       .catch(err => {
         console.log(err)
-        res.redirect('/snakes')
+        res.redirect("/snakes")
       })
     })
   .catch(err => {
     console.log(err)
-    res.redirect('/snakes')
+    res.redirect("/snakes")
   })
 }
 export {

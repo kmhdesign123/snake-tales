@@ -18,6 +18,7 @@ body {
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 nav {
@@ -27,6 +28,8 @@ nav {
   align-items: center;
   padding: 0px;
   min-height: 60px;
+  align-items: right;
+  font-weight: 400;
 }
 
 a {
@@ -53,16 +56,45 @@ main {
 button {
   min-height: 30px;
   min-width: 30px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0)
+}
+
+button.addsnake {
+  max-width: max-content;
+  box-shadow: none;
+  background-color: #63B62A;
+  color: #ffffff;
+  padding: 10px;
+}
+
+button.addmeal {
+  max-width: max-content;
+  box-shadow: none;
+  background-color: #63B62A;
+  color: #ffffff;
+  padding: 10px;
 }
 
 table {
+  margin-top: 50px;
   border: none;
   border-collapse:collapse;
-  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
 }
+table.form {
+  margin: 0;
+  box-shadow: none;
+}
+
+
 th {
-  background-color: #04AA6D;
+  background-color:#63B62A;
   color: white;
+}
+th.nocolor{
+  background-color: white;
+  color: black;
 }
 td {
   height: 50px;
@@ -74,10 +106,35 @@ th, td {
   text-align: left;
 }
 
-tr:hover {
-  background-color: rgb(168, 241, 123) ;
-}
-
 tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+tr.form:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.addsnake {
+  display: flex;
+  padding: 20px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.addmeal {
+  display: flex;
+  padding: 20px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+
+
+.snakelist {
+  display: flex;
+  padding: 50px;
 }
