@@ -3,35 +3,67 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
-  <form id="new-form" action="/snakes/<%=snake._id%>?_method=PUT" method="POST">
-    <label for="name-input">Name:</label>
-    <input type="text" name="name" value="<%= snake.name %>" id="name-input">
-    <label for="species-input">Species:</label>
-    <input type="text" name="species" value="<%= snake.species %>" id="species-input">
-    <label for="morph-input">Morph:</label>
-    <input type="text" name="morph" value="<%= snake.morph %>" id="morph-input">
-    <label for="dateOfBirth-input">DOB:</label>
-    <input type="datetime-local" name="dateOfBirth" value="<%= snake.dateOfBirth.toISOString().slice(0,16) %>" id="dateOfBirth-input">
-    <label for="weight-input">Weight:</label>
-    <input type="text" name="weight" value="<%= snake.weight %>" id="weight-input">
-    <label for="tank-input">Tank Number:</label>
-    <input type="number" name="tankNum" value="<%= snake.tankNum %>" id="tank-input">
-    <button type="submit"><i class="fas fa-save" style="color: #424242;"></i></button>
-  </form>
-  <% if (snakes.length) { %>
-    <h1>My Snakes</h1>
-    <table id="list">
+  <div  class="editsnake">
+    <table class="form">
       <thead>
-        <tr>
-          <th>Name</th>
-          <th>Species</th>
-          <th>DOB</th>
-          <th>Details</th>
-          <th>Delete</th>
+        <tr class="form">
+          <th class="nocolor"><h1><%= title %></h1></th>
+          <th class="nocolor"></th>
+          <th class="nocolor"></th>
+          <th class="nocolor"></th>
         </tr>
       </thead>
       <tbody>
+        <form id="new-form" action="/snakes/<%=snake._id%>?_method=PUT" method="POST">
+        <tr class="form">
+          <td>
+            <div>
+              <label for="name-input">Name:</label>
+              <input type="text" name="name" value="<%= snake.name %>" id="name-input">
+              <label for="species-input">Species:</label>
+              <input type="text" name="species" value="<%= snake.species %>" id="species-input">
+              <label for="morph-input">Morph:</label>
+              <input type="text" name="morph" value="<%= snake.morph %>" id="morph-input">
+            </div>
+          </td>
+        </tr>
+        <tr class="form">
+          <td>
+            <div>
+              <label for="dateOfBirth-input">DOB:</label>
+              <input type="datetime-local" name="dateOfBirth" value="<%= snake.dateOfBirth.toISOString().slice(0,16) %>" id="dateOfBirth-input">
+              <label for="weight-input">Weight:</label>
+              <input type="text" name="weight" value="<%= snake.weight %>" id="weight-input">
+              <label for="tank-input">Tank Number:</label>
+              <input type="number" name="tankNum" value="<%= snake.tankNum %>" id="tank-input">
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+      <button class="savesnake" type="submit">Save</button>
+    </form>
+  </div>
+  
+  <% if (snakes.length) { %>
+    <table id="list">
+      <thead>
+        <tr>
+        <th><h1>My Snakes</h1></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>Species</td>
+          <td>DOB</td>
+          <td>Details</td>
+          <td>Delete</td>
+        </tr>
         <% snakes.forEach((snake) => { %>
         <tr>
           <td><%= snake.name %></td>
@@ -56,7 +88,6 @@
     <% } else { %>
       <h3>You havent added any snakes yet</h3>
     <% } %>
-</main>
-</main>
-
-<%- include("../partials/footer") %>
+  </main>
+  
+  <%- include("../partials/footer") %>

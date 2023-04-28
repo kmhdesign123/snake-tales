@@ -78,6 +78,13 @@ button.addmeal {
   color: #ffffff;
   padding: 10px;
 }
+button.savesnake {
+  max-width: max-content;
+  box-shadow: none;
+  background-color: #63B62A;
+  color: #ffffff;
+  padding: 10px;
+}
 
 table {
   margin-top: 50px;
@@ -133,8 +140,25 @@ tr.form:nth-child(even) {
   flex-wrap: wrap;
   width: 100%;
 }
-
-.snakelist {
+.editsnake {
   display: flex;
+  padding: 20px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.logoblack {
+  width: 100vmin;
   padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  width: 200px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

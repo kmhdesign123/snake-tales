@@ -43,35 +43,40 @@
     </table>
     <button class="addsnake" type="submit">Add Snake</button>
   </form>
-</div>
-<div class="snakelist">
-
+  </div>
   <% if (snakes.length) { %>
     <table id="list">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Species</th>
-          <th>DOB</th>
-          <th>Details</th>
-          <th>Delete</th>
+        <th><h1>My Snakes</h1></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>Name</td>
+          <td>Species</td>
+          <td>DOB</td>
+          <td>Details</td>
+          <td>Delete</td>
+        </tr>
         <% snakes.forEach((snake) => { %>
-          <tr>
+        <tr>
           <td><%= snake.name %></td>
           <td><%= snake.species %></td>
           <td><%= snake.dateOfBirth.toISOString().slice(0,10) %></td>
           <td>
             <a href="/snakes/<%= snake._id %>">
               <button><i class="far fa-file-alt fa=lg" style="color: #424242;"></i></button>
-            </td>
-            <td>
-              <form 
+          </td>
+          <td>
+            <form 
               action="/snakes/<%= snake._id %>?_method=DELETE" 
               method="POST"
-              >
+            >
               <button type="submit"><i class="fas fa-trash-alt" style="color: #424242;"></i></button>
             </form>
           </td>
@@ -81,8 +86,7 @@
     </table>
     <% } else { %>
       <h3>You havent added any snakes yet</h3>
-      <% } %>
-    </div>
+    <% } %>
     </main>
 
 <%- include("../partials/footer") %>
