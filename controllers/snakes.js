@@ -1,11 +1,13 @@
 import { Snake } from '../models/snake.js'
 
 function newSnake(req, res) {
-  Snake.find({})
+  const profileId = req.user.profile._id
+  Snake.find({owner: profileId})
   .then(snakes => {
+    console.log(req.user.profile._id, '*****')
     res.render("snakes/new", {
       title: "Add Snake",
-      snakes: snakes
+      snakes,
     })
   })
 }
