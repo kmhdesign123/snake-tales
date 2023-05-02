@@ -16,6 +16,7 @@ const mealSchema = new Schema({
 })
 
 const snakeSchema = new Schema({
+  owner:{type: Schema.Types.ObjectId, ref: 'Profile'},
   name: {
     type: String,
     required: true

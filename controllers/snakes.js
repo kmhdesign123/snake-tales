@@ -11,6 +11,7 @@ function newSnake(req, res) {
 }
 
 function create(req, res) {
+  req.body.owner = req.user.profile._id
   Snake.create(req.body)
   .then(snake => {
     res.redirect(`/snakes/${snake._id}`)
@@ -22,7 +23,8 @@ function create(req, res) {
 }
 
 function index(req, res) {
-  Snake.find({})
+  const profileId = req.user.profile._id
+  Snake.find({owner: profileId})
   .then(snakes => {
     res.render("snakes/index", {
       snakes: snakes,
@@ -98,7 +100,6 @@ function update(req, res) {
 function createMeal(req, res) {
   Snake.findById(req.params.snakeId)
   .then(snake => {
-    console.log(snake)
     snake.meals.push(req.body)
     snake.save()
     .then(() => {
